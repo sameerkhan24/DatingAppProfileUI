@@ -1,6 +1,7 @@
 import 'package:dating_app/commons/myinfo.dart';
 import 'package:dating_app/commons/opaqueimage.dart';
 import 'package:dating_app/commons/profileinfobigcard.dart';
+import 'package:dating_app/commons/profileinfocard.dart';
 import 'package:dating_app/pages/superlikesmepage.dart';
 import 'package:dating_app/styleguide/colors.dart';
 import 'package:dating_app/styleguide/text_style.dart';
@@ -11,6 +12,8 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -131,6 +134,32 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          Positioned(
+            top: screenHeight * (4 / 9) - 80 / 2,
+            left: 16,
+            right: 16,
+            child: Container(
+              height: 80,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  ProfileInfoCard(firstText: "54%", secondText: "Progress"),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  ProfileInfoCard(
+                    hasImage: true,
+                    imagePath: "assets/icons/pulse.png",
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  ProfileInfoCard(firstText: "152", secondText: "Level"),
+                ],
+              ),
+            ),
           ),
         ],
       ),
